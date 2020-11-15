@@ -56,5 +56,19 @@ namespace Day_28_ProductReviewManagement_LINQ
                 Console.WriteLine($"ProductID:{v.ProductID},ReviewCount:{v.Count}");
             }
         }
+        /// <summary>
+        /// UC 5 : Retrieves only the product id and review of all records.
+        /// </summary>
+        /// <param name="productList">The product list.</param>
+        public static void RetrieveOnlyProductIDAndReviewOfAllRecords(List<ProductReview> productList)
+        {
+            var retrievedDate = (from products in productList
+                                 select new { ProductId = products.ProductID, Review = products.Review });
+            Console.WriteLine("\nProductId and its review:");
+            foreach (var v in retrievedDate)
+            {
+                Console.WriteLine($"ProductID:{v.ProductId},ReviewCount:{v.Review}");
+            }
+        }
     }
 }
