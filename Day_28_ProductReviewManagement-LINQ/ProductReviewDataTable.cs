@@ -19,8 +19,7 @@ namespace Day_28_ProductReviewManagement_LINQ
         /// UC 8 : Adds the data into data table.
         /// </summary>
         public static void AddDataIntoDataTable()
-        {
-            //Adding Fields into the datatable
+        { //Adding Fields into the datatable
             productDataTable.Columns.Add("ProductId", typeof(Int32));
             productDataTable.Columns.Add("UserId", typeof(Int32));
             productDataTable.Columns.Add("Rating", typeof(double));
@@ -38,6 +37,11 @@ namespace Day_28_ProductReviewManagement_LINQ
             productDataTable.Rows.Add(4, 4, 2, "Satisfactory", false);
             productDataTable.Rows.Add(1, 9, 2, "Satisfactory", false);
             productDataTable.Rows.Add(9, 5, 1, "Poor     ", false);
+            //UC 12
+            productDataTable.Rows.Add(3, 10, 2, "Satisfactory", false);
+            productDataTable.Rows.Add(6, 10, 5, "Excellent", true);
+            productDataTable.Rows.Add(4, 10, 4, "Nice     ", true);
+            productDataTable.Rows.Add(1, 10, 4, "Nice     ", true);
 
             //Printing data
             Console.WriteLine("\nDataTable contents:");
@@ -82,6 +86,21 @@ namespace Day_28_ProductReviewManagement_LINQ
                                 where (records.Field<string>("Review") == "Good")
                                 select records;
             Console.WriteLine("\nRecords in table whose Review message=Good:");
+            foreach (var v in retrievedData)
+            {
+                Console.WriteLine($"ProductID:{v.Field<int>("ProductId")}\tUserID:{v.Field<int>("UserId")}\tRating:{v.Field<double>("Rating")}\tReview:{v.Field<string>("Review")}\tIsLike:{v.Field<bool>("IsLike")}");
+            }
+        }
+        /// <summary>
+        /// UC 12 : Retrieves the records for given userId sorted by rating.
+        /// </summary>
+        public static void RetrieveRecordsForGivenUserIdSortedByRating()
+        {
+            var retrievedData = from records in productDataTable.AsEnumerable()
+                                where (records.Field<int>("UserId") == 10)
+                                orderby records.Field<double>("Rating") descending
+                                select records;
+            Console.WriteLine("\nSorted by rating records with userId=10:");
             foreach (var v in retrievedData)
             {
                 Console.WriteLine($"ProductID:{v.Field<int>("ProductId")}\tUserID:{v.Field<int>("UserId")}\tRating:{v.Field<double>("Rating")}\tReview:{v.Field<string>("Review")}\tIsLike:{v.Field<bool>("IsLike")}");
