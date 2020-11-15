@@ -60,5 +60,18 @@ namespace Day_28_ProductReviewManagement_LINQ
                 Console.WriteLine($"ProductID:{v.Field<int>("ProductId")}\tUserID:{v.Field<int>("UserId")}\tRating:{v.Field<double>("Rating")}\tReview:{v.Field<string>("Review")}\tIsLike:{v.Field<bool>("IsLike")}");
             }
         }
+
+        /// <summary>
+        /// UC 10 : Finds the average rating for each productId.
+        /// </summary>
+        public static void FindAverageRatingForEachProductId()
+        {
+            var retrievedData = productDataTable.AsEnumerable().GroupBy(r => r.Field<int>("ProductId")).Select(x => new { ProductId = x.Key, Average = x.Average(r => r.Field<double>("Rating")) });
+            Console.WriteLine("\nProductId and its average rating");
+            foreach (var v in retrievedData)
+            {
+                Console.WriteLine($"ProductID:{v.ProductId},AverageRating:{v.Average}");
+            }
+        }
     }
 }
