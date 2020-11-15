@@ -7,8 +7,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Text;
 using System.Linq;
+using System.Text;
 namespace Day_28_ProductReviewManagement_LINQ
 {
     public class ProductReviewDataTable
@@ -71,6 +71,20 @@ namespace Day_28_ProductReviewManagement_LINQ
             foreach (var v in retrievedData)
             {
                 Console.WriteLine($"ProductID:{v.ProductId},AverageRating:{v.Average}");
+            }
+        }
+        /// <summary>
+        /// UC 11 : Retrieves all records with given review message.
+        /// </summary>
+        public static void RetrieveRecordsWithParticularReviewMessage()
+        {
+            var retrievedData = from records in productDataTable.AsEnumerable()
+                                where (records.Field<string>("Review") == "Good")
+                                select records;
+            Console.WriteLine("\nRecords in table whose Review message=Good:");
+            foreach (var v in retrievedData)
+            {
+                Console.WriteLine($"ProductID:{v.Field<int>("ProductId")}\tUserID:{v.Field<int>("UserId")}\tRating:{v.Field<double>("Rating")}\tReview:{v.Field<string>("Review")}\tIsLike:{v.Field<bool>("IsLike")}");
             }
         }
     }
