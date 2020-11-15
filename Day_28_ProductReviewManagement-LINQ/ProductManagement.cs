@@ -84,5 +84,18 @@ namespace Day_28_ProductReviewManagement_LINQ
                 Console.WriteLine($"ProductID:{v.ProductID}\tUserID:{v.UserID}\tRating:{v.Rating}\tReview:{v.Review}\tIsLike:{v.IsLike}");
             }
         }
+        /// <summary>
+        /// UC 7 : Retrieves only the product id and review of all records using LINQ select.
+        /// </summary>
+        /// <param name="productList">The product list.</param>
+        public static void RetrieveOnlyProductIDAndReviewOfAllRecordsUsingSelect(List<ProductReview> productList)
+        {
+            var retrievedDate = productList.Select(x => new { ProductId = x.ProductID, Review = x.Review });
+            Console.WriteLine("\nProductId and its review using LINQ select:");
+            foreach (var v in retrievedDate)
+            {
+                Console.WriteLine($"ProductID:{v.ProductId},ReviewCount:{v.Review}");
+            }
+        }
     }
 }

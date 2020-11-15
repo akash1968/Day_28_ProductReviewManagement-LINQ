@@ -46,6 +46,8 @@ namespace Day_28_ProductReviewManagement_LINQ
             ProductManagement.RetrieveOnlyProductIDAndReviewOfAllRecords(productReviewList);
             //UC 6
             ProductManagement.SkipTopFiveRecordsAndDisplayOthers(productReviewList);
+            //UC 7
+            ProductManagement.RetrieveOnlyProductIDAndReviewOfAllRecordsUsingSelect(productReviewList);
         }
     }
 }
