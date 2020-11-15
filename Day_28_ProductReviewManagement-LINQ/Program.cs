@@ -54,6 +54,8 @@ namespace Day_28_ProductReviewManagement_LINQ
             ProductReviewDataTable.RetrieveAllRecordsWhoseIsLikeIsTrue();
             //UC 10
             ProductReviewDataTable.FindAverageRatingForEachProductId();
+            //UC 11
+            ProductReviewDataTable.RetrieveRecordsWithParticularReviewMessage();
         }
     }
 }
