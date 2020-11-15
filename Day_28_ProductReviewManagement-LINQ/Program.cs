@@ -48,6 +48,8 @@ namespace Day_28_ProductReviewManagement_LINQ
             ProductManagement.SkipTopFiveRecordsAndDisplayOthers(productReviewList);
             //UC 7
             ProductManagement.RetrieveOnlyProductIDAndReviewOfAllRecordsUsingSelect(productReviewList);
+            //UC 8
+            ProductReviewDataTable.AddDataIntoDataTable();
         }
     }
 }
