@@ -50,6 +50,8 @@ namespace Day_28_ProductReviewManagement_LINQ
             ProductManagement.RetrieveOnlyProductIDAndReviewOfAllRecordsUsingSelect(productReviewList);
             //UC 8
             ProductReviewDataTable.AddDataIntoDataTable();
+            //UC 9
+            ProductReviewDataTable.RetrieveAllRecordsWhoseIsLikeIsTrue();
         }
     }
 }
