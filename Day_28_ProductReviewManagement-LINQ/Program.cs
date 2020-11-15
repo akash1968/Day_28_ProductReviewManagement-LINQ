@@ -34,6 +34,9 @@ namespace Day_28_ProductReviewManagement_LINQ
             {
                 Console.WriteLine($"ProductID:{v.ProductID}\tUserID:{v.UserID}\tRating:{v.Rating}\tReview:{v.Review}\tIsLike:{v.IsLike}");
             }
+            //UC 2
+            ProductManagement.RetrieveTopThreeHighRatedRecords(productReviewList);
+            Console.ReadLine();
         }
     }
 }
