@@ -40,6 +40,8 @@ namespace Day_28_ProductReviewManagement_LINQ
             //UC 3
             ProductManagement.RetrieveRecordsWithGreaterThanThreeRating(productReviewList);
             Console.ReadLine();
+            //UC 4
+            ProductManagement.RetrieveCountOfReviewsForEachProductID(productReviewList);
         }
     }
 }

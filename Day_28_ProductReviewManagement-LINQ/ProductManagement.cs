@@ -41,5 +41,20 @@ namespace Day_28_ProductReviewManagement_LINQ
                 Console.WriteLine($"ProductID:{v.ProductID}\tUserID:{v.UserID}\tRating:{v.Rating}\tReview:{v.Review}\tIsLike:{v.IsLike}");
             }
         }
+        /// <summary>
+        /// UC 4 : Retrieves the count of reviews for each productID.
+        /// </summary>
+        /// <param name="productList">The product list.</param>
+        public static void RetrieveCountOfReviewsForEachProductID(List<ProductReview> productList)
+        {
+            var retrievedDate = (from products in productList
+                                 group products by products.ProductID into g
+                                 select new { ProductID = g.Key, Count = g.Count() });
+            Console.WriteLine("ProductId and their review count:");
+            foreach (var v in retrievedDate)
+            {
+                Console.WriteLine($"ProductID:{v.ProductID},ReviewCount:{v.Count}");
+            }
+        }
     }
 }
