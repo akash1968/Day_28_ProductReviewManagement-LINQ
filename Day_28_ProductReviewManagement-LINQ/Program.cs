@@ -7,7 +7,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
-
+using System.Linq;
 namespace Day_28_ProductReviewManagement_LINQ
 {
     public class Program
@@ -36,6 +36,9 @@ namespace Day_28_ProductReviewManagement_LINQ
             }
             //UC 2
             ProductManagement.RetrieveTopThreeHighRatedRecords(productReviewList);
+            Console.ReadLine();
+            //UC 3
+            ProductManagement.RetrieveRecordsWithGreaterThanThreeRating(productReviewList);
             Console.ReadLine();
         }
     }
