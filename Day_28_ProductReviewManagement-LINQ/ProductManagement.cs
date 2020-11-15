@@ -28,5 +28,18 @@ namespace Day_28_ProductReviewManagement_LINQ
                 Console.WriteLine($"ProductID:{v.ProductID}\tUserID:{v.UserID}\tRating:{v.Rating}\tReview:{v.Review}\tIsLike:{v.IsLike}");
             }
         }
+        /// <summary>
+        /// UC 3 : Retrieves the records with rating greater than three.
+        /// </summary>
+        /// <param name="productList">The product list.</param>
+        public static void RetrieveRecordsWithGreaterThanThreeRating(List<ProductReview> productList)
+        {
+            var retrievedData = productList.Where(r => r.Rating > 3 && (r.ProductID == 1 || r.ProductID == 4 || r.ProductID == 9)).ToList();
+            Console.WriteLine("\nProducts with rating greater than 3 and id=1 or 4 or 9 are:");
+            foreach (var v in retrievedData)
+            {
+                Console.WriteLine($"ProductID:{v.ProductID}\tUserID:{v.UserID}\tRating:{v.Rating}\tReview:{v.Review}\tIsLike:{v.IsLike}");
+            }
+        }
     }
 }
