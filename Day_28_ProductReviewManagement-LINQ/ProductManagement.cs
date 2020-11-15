@@ -70,5 +70,19 @@ namespace Day_28_ProductReviewManagement_LINQ
                 Console.WriteLine($"ProductID:{v.ProductId},ReviewCount:{v.Review}");
             }
         }
+        /// <summary>
+        /// UC 6 : Skips the top five records and display others.
+        /// </summary>
+        /// <param name="productList">The product list.</param>
+        public static void SkipTopFiveRecordsAndDisplayOthers(List<ProductReview> productList)
+        {
+            var retrievedDate = (from products in productList
+                                 select products).Skip(5);
+            Console.WriteLine("\nSkip top 5 records and display others:");
+            foreach (var v in retrievedDate)
+            {
+                Console.WriteLine($"ProductID:{v.ProductID}\tUserID:{v.UserID}\tRating:{v.Rating}\tReview:{v.Review}\tIsLike:{v.IsLike}");
+            }
+        }
     }
 }
